@@ -8,17 +8,25 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <p>Enter your text or URL</p>
-        <input type="text" id="input" placeholder="Text or URL">
-        <div id="image-box">
-            <img src="" id="qrimage">
-        </div>
-        <button class="btn" id="generate" onclick="generateQR()">Generate QR Code</button>
-
-        <button class="btn" id="download" onclick="downloadFile()">Download QR</button>
-        
+   <div class="container">
+    <p>Enter your text or URL</p>
+    <input type="text" placeholder="Text or URL" id="qrText">
+    <div id="imgBox">
+       <img src="" id="qrImage">
     </div>
+    <button onclick="generate()">Generate QR Code</button>
+
+   </div>
+    <script>
+        let imgBox = document.getElementById("imgBox"); 
+        let qrImage = document.getElementById("qrImage");  
+        let qrText = document.getElementById("qrText");                  
+
+  function generate(){
+    qrImage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+  }
+  
+    </script>
 </body>
 </html>
 
